@@ -1,0 +1,113 @@
+***************************
+Supervised Ideal Point model
+***************************
+
+This code is the result of work by 
+
+David M. Blei
+blei[at]cs.princeton.edu
+
+and
+
+Sean M Gerrish
+sgerrish[at]cs.princeton.edu.
+
+(C) Copyright 2010, David M. Blei (blei [at] cs [dot] princeton [dot] edu)
+(C) Copyright 2010, Sean M. Gerrish (sgerrish [at] cs [dot] princeton [dot] edu)
+
+All rights reserved.
+
+This file is part of SIPM.
+
+SIPM is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+SIPM is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+USA
+
+------------------------------------------------------------------------
+
+Z. PREREQUISITES
+
+This software requires the GNU Scientific Library (GSL) to run.  We
+have included gsl object files compiled on our machine (Red Hat 4.1.2-46,
+Dual Core AMD Opteron P 275), but this is not universally portable.
+
+If compiling as below does not work, you should make sure GSL is
+installed for development in your environment and provide a pointer to it
+in static_model/Makefile (the appropriate location is specified in the
+Makefile comments).
+
+GSL is used by much scientific software (such as R and Matlab), so
+there's a good chance it's already installed on your
+computer. Otherwise, you can obtain GSL here:
+
+   http://www.gnu.org/software/gsl/
+
+
+A. COMPILING
+
+Change to the directory "static_model" and type "make legis".  (As
+noted above, you may need to edit the Makefile and change Makefile
+constants to point to local copies of shared libraries (such as gsl
+and gsl_cblas) if these libraries are not installed in a standard
+directory.
+
+B. RUNNING
+
+  0. Examples.
+   At a command prompt, type the command "legis <flags>", where flags is a
+   list of command-line options.  Several example commands are given in
+  
+    test.sh.
+
+  1. Input format.
+   The IPTM expects three datafiles.
+
+   See test/ for examples of these documents.
+
+   a. A comma-separated user file, with two columns of the form
+     UserIdString,user metadata
+   b. A comma-separated vote file, with three columns of the form
+     +,DocIdString,UserIdString
+   c. A one-line-per-doc with lines of the form:
+     DocIdString word_index1:count1 ... word_indexN:countN
+
+  2. Output files.
+   The IPTM creates a variety of datafiles.  These summarize a model fit.
+   These files begin with the string --checkpoint_prefix (where this
+is specified to legis in the command-line) and end with the descriptive suffixes:
+   beta.dat
+   doc_ips.csv (includes the 1st-Nth doc ideal points)
+   user_ips.csv (includes the 2nd-Nth user ideal points.  The first defaults to 1).
+   gam.dat     (includes gammas, or unnormalized topic proportions for each document.
+   parameters.dat (includes several parameters, such as iteration count.
+   etas.csv    (eta coefficients)
+   predictions (in-sample predictions, useful on validation datasets)
+
+  3. Command-line flags of interest.
+   Run legis --help to see a list of command-line flags and their values.
+
+  4. Checkpoints.
+  legis runs until it is well-converged, but this will often take place whn 
+
+C. NON-SUPPORT and QUESTIONS
+
+This software is provided as-is, without any warranty or support,
+WHATSOEVER.  If you have any questions about running this software,
+you can post your question to the topic-models mailing list
+topic-models@lists.cs.princeton.edu.  You are encouraged to submit
+modifications and bug-fixes of this software through the project's Google
+Code page.  Users are also encouraged to branch this software for
+other applications, although work which is significantly different can
+and should be posted as different projects (providing appropriate
+attribution to the authors).

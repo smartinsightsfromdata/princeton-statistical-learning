@@ -1,0 +1,7 @@
+checkpoint_ideal_TOP_T_VR_D_S
+
+Command: /u/sgerrish/src30/slap/project/legis/src/static_model/legis   --number_topics=   --ip_dimension=2   --alpha=0.01   --users=/n/fs/topics/users/sgerrish/data/legis/data/v6/v6.1-users.dat   --docs=/n/fs/topics/users/sgerrish/data/legis/data/v6/v6.1-train-mult.dat_   --votes=/n/fs/topics/users/sgerrish/data/legis/data/v6/v6.1-text-train-votes.dat_   --sigma_kappa=0.032   --sigma_lambda=0.01   --sigma_u=3.2   --mode=fit   --sigma_eta=1.0   --second_order=true   --batch_update=true   --discerning_etas=false   --time_filter=   --experimental_priors=true   --encode_difficulty=true   --vote_replication=   --dispersion=   --checkpoint_prefix=/n/fs/topics/users/sgerrish/data/legis/experiments/v6/v6.standard_fit_time_topics/model_run/checkpoint_ideal_TOP_T_VR_D_S   --use_checkpoint=   --miscfile=/n/fs/topics/users/sgerrish/data/legis/experiments/v6/v6.standard_fit_time_topics/model_run/   --fix_eta=false
+Checking for /n/fs/topics/users/sgerrish/data/legis/experiments/v6/v6.standard_fit_time_topics/model_run/checkpoint_ideal_TOP_T_VR_D_S_parameters.dat
+ERROR: illegal value '' specified for double flag 'dispersion'
+ERROR: illegal value '' specified for int32 flag 'number_topics'
+ERROR: illegal value '' specified for double flag 'vote_replication'
