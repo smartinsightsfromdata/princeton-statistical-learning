@@ -41,7 +41,7 @@ DEFINE_bool(initialize_lda,
 	    "If true, initialize the model with lda.");
 
 DEFINE_string(outname, "", "");
-DEFINE_double(top_obs_var, -1.0, "");
+DEFINE_double(top_obs_var, 0.5, "");
 DEFINE_double(top_chain_var, -1.0, "");
 DEFINE_double(alpha, -10.0, "");
 DEFINE_double(ntopics, -1.0, "");
