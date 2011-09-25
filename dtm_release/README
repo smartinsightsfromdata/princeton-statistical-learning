@@ -98,3 +98,9 @@ as a mixture of these topics, and (possibly) a measure of how
 We have provided an example dataset, instructions for formatting input
 data and processing output files, and example command lines for
 running this software in the file dtm/sample.sh.
+
+E. CHANGES
+
+Changes in this version include:
+
+ - Change the default top_obs_var flag to 0.5 (from -1.0)
