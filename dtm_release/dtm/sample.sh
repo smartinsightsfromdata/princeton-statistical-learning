@@ -81,7 +81,7 @@ influence, it will also create the following files:
   --top_chain_var=0.005 \
   --alpha=0.01 \
   --lda_sequence_min_iter=6 \
-  --lda_sequence_max_iter=50 \
+  --lda_sequence_max_iter=20 \
   --lda_max_em_iter=10
 
 # Run the influence model.

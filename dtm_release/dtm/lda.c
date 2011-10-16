@@ -502,7 +502,7 @@ void initialize_lda_ss_from_random(corpus_t* data, lda_suff_stats* ss) {
         gsl_vector_set_all(&topic, 0);
         for (n = 0; n < topic.size; n++)
         {
-            vset(&topic, n, gsl_rng_uniform(r) + 10);
+	  vset(&topic, n, gsl_rng_uniform(r) + 0.5 / data->ndocs + 4.0);
         }
     }
 }

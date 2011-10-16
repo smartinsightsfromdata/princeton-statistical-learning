@@ -27,7 +27,7 @@
  *
  */
 
-#define LDA_INFERENCE_CONVERGED 1e-7
+#define LDA_INFERENCE_CONVERGED 1e-8
 #define LDA_SEED_INIT 1
 #define LDA_INIT_SMOOTH 1.0
 #define LDA_EM_CONVERGED 5e-5

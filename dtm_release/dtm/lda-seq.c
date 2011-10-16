@@ -23,7 +23,7 @@ const int TIME = -3;
 const double PI = 3.141592654;
 
 DEFINE_int32(lda_sequence_max_iter,
-	     15,
+	     20,
 	     "The maximum number of iterations.");
 DEFINE_int32(lda_sequence_min_iter,
 	     1,
@@ -1040,12 +1040,12 @@ double fit_lda_seq(lda_seq* m, const corpus_seq_t* data,
      short final_iters_flag = 0;
      unsigned int last_iter = 0;
      while (iter < FLAGS_lda_sequence_min_iter ||
-	    ((final_iters_flag == 0) || (convergence > LDA_SEQ_EM_THRESH)
+	    ((final_iters_flag == 0 || convergence > LDA_SEQ_EM_THRESH)
 	     && iter <= FLAGS_lda_sequence_max_iter)
 	    && !last_iter) {
 
 	 if (!(iter < FLAGS_lda_sequence_min_iter ||
-	       ((final_iters_flag == 0) || (convergence > LDA_SEQ_EM_THRESH)
+	       ((final_iters_flag == 0 || convergence > LDA_SEQ_EM_THRESH)
 		&& iter <= FLAGS_lda_sequence_max_iter))) {
 	   last_iter = 1;
 	 }
@@ -1123,7 +1123,7 @@ double fit_lda_seq(lda_seq* m, const corpus_seq_t* data,
 
 	// check for convergence
         convergence = fabs((bound - old_bound) / old_bound);
-        if (convergence > LDA_SEQ_EM_THRESH) {
+        if (convergence < LDA_SEQ_EM_THRESH) {
             final_iters_flag = 1;
             LDA_INFERENCE_MAX_ITER = 500;
             outlog("starting final iterations : max iter = %d\n",

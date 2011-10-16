@@ -42,10 +42,10 @@ DEFINE_bool(initialize_lda,
 
 DEFINE_string(outname, "", "");
 DEFINE_double(top_obs_var, 0.5, "");
-DEFINE_double(top_chain_var, -1.0, "");
+DEFINE_double(top_chain_var, 0.005, "");
 DEFINE_double(alpha, -10.0, "");
 DEFINE_double(ntopics, -1.0, "");
-DEFINE_int32(lda_max_em_iter, -1, "");
+DEFINE_int32(lda_max_em_iter, 20, "");
 DEFINE_string(heldout_corpus_prefix, "", "");
 DEFINE_int32(start, -1, "");
 DEFINE_int32(end, -1, "");
@@ -96,7 +96,7 @@ void fit_dtm(int min_time, int max_time)
       
       sprintf(name, "%s/initial-lda", run_dir);
       // TODO(sgerrish): Fix this.  This was originally hardcoded to 1.
-      LDA_INFERENCE_MAX_ITER = 10;
+      LDA_INFERENCE_MAX_ITER = 25;
       lda_em(lda_model, lda_ss, initial_lda_data, FLAGS_lda_max_em_iter, name);
       sprintf(name, "%s/initial-lda-ss.dat", run_dir);
       
