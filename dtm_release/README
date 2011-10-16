@@ -104,3 +104,5 @@ E. CHANGES
 Changes in this version include:
 
  - Change the default top_obs_var flag to 0.5 (from -1.0)
+ - Change to use more iterations and a tighter convergence criterion in each doc's E-step.
+ - Change to initialize random topics to be a bit more "flat".
